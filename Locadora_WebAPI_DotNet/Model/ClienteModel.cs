@@ -2,10 +2,23 @@
 {
     public class ClienteModel
     {
+        public ClienteModel()
+        {
+        }
+
+        public ClienteModel(int id, string nome, string cpf, DateTime dataNascimento)
+        {
+            this.id = id;
+            this.nome = nome;
+            this.cpf = cpf;
+            this.dataNascimento = dataNascimento;
+        }
+
         //Indexes idx_Cpf idx_Nome
-        public int Id { get; set; }
-        public string Nome { get; set; }
-        public string CPF { get; set; }
-        public DateTime DataNascimento { get; set; }
+        public int id { get; set; }
+        public string nome { get; set; }
+        public string cpf { get; set; }
+        public DateTime dataNascimento { get; set; }
+
     }
 }

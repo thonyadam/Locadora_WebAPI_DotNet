@@ -2,9 +2,21 @@
 {
     public class FilmeModel
     {
-        public int Id { get; set; }
-        public string Titulo { get; set; }
-        public int ClassificacaoIndicativa { get; set; }
-        public int Lancamento { get; set; }
+        public FilmeModel()
+        {
+        }
+
+        public FilmeModel(int id, string titulo, int classificacaoIndicativa, int lancamento)
+        {
+            this.id = id;
+            this.titulo = titulo;
+            this.classificacaoIndicativa = classificacaoIndicativa;
+            this.lancamento = lancamento;
+        }
+
+        public int id { get; set; }
+        public string titulo { get; set; }
+        public int classificacaoIndicativa { get; set; }
+        public int lancamento { get; set; }
     }
 }

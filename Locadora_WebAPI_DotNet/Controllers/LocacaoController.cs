@@ -1,31 +1,29 @@
-﻿using Google.Protobuf.WellKnownTypes;
-using Locadora_WebAPI_DotNet.Model;
+﻿using Locadora_WebAPI_DotNet.Model;
 using Locadora_WebAPI_DotNet.Objeto;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MySql.Data.MySqlClient;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Locadora_WebAPI_DotNet.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ClienteController : ControllerBase
+    public class LocacaoController : ControllerBase
     {
         private readonly IConfiguration Configuration;
 
-        public ClienteController(IConfiguration configuration)
+        public LocacaoController(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
         /// <summary>
-        /// Lista todos os clientes cadastrados
+        /// Lista todos as locacoes cadastradas
         /// </summary>
         /// <param></param>
         /// <returns></returns>
         [HttpGet("Consultar")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<ClienteModel>))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<LocacaoModel>))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult Consultar()
         {
@@ -34,23 +32,30 @@ namespace Locadora_WebAPI_DotNet.Controllers
                 try
                 {
                     con.Open();
-                    MySqlCommand cmd = new MySqlCommand("SELECT * FROM `cliente`;");
+                    MySqlCommand cmd = new MySqlCommand("SELECT * FROM `locacao`;");
                     cmd.Connection = con;
 
                     MySqlDataReader reader = cmd.ExecuteReader();
 
-                    var lista = new List<ClienteModel>();
+                    var lista = new List<LocacaoModel>();
 
                     while (reader.Read())
                     {
-                        var cliente = new ClienteModel(
+
+                        var locacao = new LocacaoModel(
                             Convert.ToInt32(reader["Id"].ToString()),
-                            reader["Nome"].ToString(),
-                            reader["CPF"].ToString(),
-                            Convert.ToDateTime(reader["DataNascimento"].ToString())
+                            Convert.ToInt32(reader["Id_Cliente"].ToString()),
+                            Convert.ToInt32(reader["Id_Filme"].ToString()),
+                            Convert.ToDateTime(reader["DataLocacao"].ToString())
                             );
 
-                        lista.Add(cliente);
+                        try
+                        {
+                           locacao.dataDevolucao = Convert.ToDateTime(reader["DataDevolucao"].ToString());
+                        }
+                        catch { }
+
+                        lista.Add(locacao);
                     }
 
                     return Ok(lista);
@@ -67,12 +72,12 @@ namespace Locadora_WebAPI_DotNet.Controllers
         }
 
         /// <summary>
-        /// Consulta um cliente pelo id
+        /// Consulta uma locacao pelo id
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet("Consultar/{id}")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(string))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(LocacaoModel))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult Consultar(int id)
         {
@@ -81,23 +86,31 @@ namespace Locadora_WebAPI_DotNet.Controllers
                 try
                 {
                     con.Open();
-                    MySqlCommand cmd = new MySqlCommand("SELECT * FROM `cliente` WHERE Id = @Id;");
+                    MySqlCommand cmd = new MySqlCommand("SELECT * FROM `locacao` WHERE Id = @Id;");
                     cmd.Parameters.Add("@Id", MySqlDbType.Int32);
                     cmd.Parameters["@Id"].Value = id;
                     cmd.Connection = con;
 
                     MySqlDataReader reader = cmd.ExecuteReader();
 
-                    var cliente = new ClienteModel(
-                            Convert.ToInt32(reader["Id"].ToString()),
-                            reader["Nome"].ToString(),
-                            reader["CPF"].ToString(),
-                            Convert.ToDateTime(reader["DataNascimento"].ToString())
-                            );
+                    reader.Read();
 
-                    return Ok(cliente);
+                    var locacao = new LocacaoModel(
+                        Convert.ToInt32(reader["Id"].ToString()),
+                        Convert.ToInt32(reader["Id_Cliente"].ToString()),
+                        Convert.ToInt32(reader["Id_Filme"].ToString()),
+                        Convert.ToDateTime(reader["DataLocacao"].ToString())
+                        );
+
+                    try
+                    {
+                        locacao.dataDevolucao = Convert.ToDateTime(reader["DataDevolucao"].ToString());
+                    }
+                    catch { }
+
+                    return Ok(locacao);
                 }
-                catch 
+                catch
                 {
                     return BadRequest();
                 }
@@ -107,32 +120,33 @@ namespace Locadora_WebAPI_DotNet.Controllers
                 }
 
             }
-        
+
              ;
         }
 
         /// <summary>
-        /// Cadastra um cliente
+        /// Cadastra uma locacao
         /// </summary>
         /// <param></param>
         /// <returns></returns>
         [HttpPost("Cadastrar")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult Cadastrar([FromBody] Cliente value)
+        public IActionResult Cadastrar([FromBody] Locacao value)
         {
-            using(MySqlConnection con = new MySqlConnection(Configuration["MysqlPath"]))
+            using (MySqlConnection con = new MySqlConnection(Configuration["MysqlPath"]))
             {
                 try
                 {
                     con.Open();
-                    MySqlCommand cmd = new MySqlCommand("INSERT INTO `cliente` (`Nome`,`CPF`,`DataNascimento`) values( @Nome, @CPF, @DataNascimento);");
-                    cmd.Parameters.Add("@Nome", MySqlDbType.VarChar);
-                    cmd.Parameters.Add("@CPF", MySqlDbType.VarChar);
-                    cmd.Parameters.Add("@DataNascimento", MySqlDbType.DateTime);
-                    cmd.Parameters["@Nome"].Value = value.Nome;
-                    cmd.Parameters["@CPF"].Value = value.CPF;
-                    cmd.Parameters["@DataNascimento"].Value = value.DataNascimento;
+
+                    MySqlCommand cmd = new MySqlCommand("INSERT INTO `locacao` (`Id_Cliente`,`Id_Filme`,`DataLocacao`) VALUES (@Id_Cliente, @Id_Filme, @DataLocacao);");
+                    cmd.Parameters.Add("@Id_Cliente", MySqlDbType.Int32);
+                    cmd.Parameters.Add("@Id_Filme", MySqlDbType.Int32);
+                    cmd.Parameters.Add("@DataLocacao", MySqlDbType.DateTime);
+                    cmd.Parameters["@Id_Cliente"].Value = value.idCliente;
+                    cmd.Parameters["@Id_Filme"].Value = value.idFilme;
+                    cmd.Parameters["@DataLocacao"].Value = value.DataLocacao;
                     cmd.Connection = con;
 
                     MySqlDataReader reader = cmd.ExecuteReader();
@@ -153,28 +167,29 @@ namespace Locadora_WebAPI_DotNet.Controllers
         }
 
         /// <summary>
-        /// Atualiza um cliente pelo id
+        /// Atualiza uma locacao pelo id
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpPut("Atualizar/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult Atualizar(int id, [FromBody] Cliente value)
+        public IActionResult Atualizar(int id, [FromBody] LocacaoAtualiza value)
         {
             using (MySqlConnection con = new MySqlConnection(Configuration["MysqlPath"]))
             {
                 try
                 {
                     con.Open();
-                    MySqlCommand cmd = new MySqlCommand("UPDATE `cliente` SET `Nome` = @Nome, `CPF` = @CPF,`DataNascimento` = @DataNascimento WHERE `Id` = @Id;");
-                    cmd.Parameters.Add("@Nome", MySqlDbType.VarChar);
-                    cmd.Parameters.Add("@CPF", MySqlDbType.VarChar);
-                    cmd.Parameters.Add("@DataNascimento", MySqlDbType.DateTime);
-                    cmd.Parameters.Add("@Id", MySqlDbType.Int32);
-                    cmd.Parameters["@Nome"].Value = value.Nome;
-                    cmd.Parameters["@CPF"].Value = value.CPF;
-                    cmd.Parameters["@DataNascimento"].Value = value.DataNascimento;
+                    MySqlCommand cmd = new MySqlCommand("UPDATE `locacao` SET `Id_Cliente` = @Id_Cliente,`Id_Filme` = @Id_Filme, `DataLocacao` = @DataLocacao, `DataDevolucao` = @DataDevolucao WHERE `Id` = @Id;");
+                    cmd.Parameters.Add("@Id_Cliente", MySqlDbType.Int32);
+                    cmd.Parameters.Add("@Id_Filme", MySqlDbType.Int32);
+                    cmd.Parameters.Add("@DataLocacao", MySqlDbType.DateTime);
+                    cmd.Parameters.Add("@DataDevolucao", MySqlDbType.DateTime);
+                    cmd.Parameters["@Id_Cliente"].Value = value.idCliente;
+                    cmd.Parameters["@Id_Filme"].Value = value.idFilme;
+                    cmd.Parameters["@DataLocacao"].Value = value.DataLocacao;
+                    cmd.Parameters["@DataDevolucao"].Value = value.DataDevolucao;
                     cmd.Parameters["@Id"].Value = id;
                     cmd.Connection = con;
 
@@ -195,7 +210,7 @@ namespace Locadora_WebAPI_DotNet.Controllers
         }
 
         /// <summary>
-        /// Deleta um cliente pelo id
+        /// Deleta um locacao pelo id
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -209,7 +224,7 @@ namespace Locadora_WebAPI_DotNet.Controllers
                 try
                 {
                     con.Open();
-                    MySqlCommand cmd = new MySqlCommand("DELETE FROM `cliente` WHERE Id = @Id;");
+                    MySqlCommand cmd = new MySqlCommand("DELETE FROM `locacao` WHERE Id = @Id;");
                     cmd.Parameters.Add("@Id", MySqlDbType.Int32);
                     cmd.Parameters["@Id"].Value = id;
                     cmd.Connection = con;

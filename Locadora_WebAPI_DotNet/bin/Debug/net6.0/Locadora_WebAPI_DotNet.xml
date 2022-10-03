@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Locadora_WebAPI_DotNet</name>
+    </assembly>
+    <members>
+        <member name="M:Locadora_WebAPI_DotNet.Controllers.ClienteController.Consultar">
+            <summary>
+            Lista todos os clientes cadastrados
+            </summary>
+            <param></param>
+            <returns></returns>
+        </member>
+        <member name="M:Locadora_WebAPI_DotNet.Controllers.ClienteController.Consultar(System.Int32)">
+            <summary>
+            Consulta um cliente pelo id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Locadora_WebAPI_DotNet.Controllers.ClienteController.Cadastrar(Locadora_WebAPI_DotNet.Objeto.Cliente)">
+            <summary>
+            Cadastra um cliente
+            </summary>
+            <param></param>
+            <returns></returns>
+        </member>
+        <member name="M:Locadora_WebAPI_DotNet.Controllers.ClienteController.Atualizar(System.Int32,Locadora_WebAPI_DotNet.Objeto.Cliente)">
+            <summary>
+            Atualiza um cliente pelo id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Locadora_WebAPI_DotNet.Controllers.ClienteController.Excluir(System.Int32)">
+            <summary>
+            Deleta um cliente pelo id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Locadora_WebAPI_DotNet.Controllers.FilmeController.Consultar">
+            <summary>
+            Lista todos os filmes cadastrados
+            </summary>
+            <param></param>
+            <returns></returns>
+        </member>
+        <member name="M:Locadora_WebAPI_DotNet.Controllers.FilmeController.Consultar(System.Int32)">
+            <summary>
+            Consulta um filme pelo id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Locadora_WebAPI_DotNet.Controllers.FilmeController.Cadastrar(Locadora_WebAPI_DotNet.Objeto.Filme)">
+            <summary>
+            Cadastra um filme
+            </summary>
+            <param></param>
+            <returns></returns>
+        </member>
+        <member name="M:Locadora_WebAPI_DotNet.Controllers.FilmeController.Atualizar(System.Int32,Locadora_WebAPI_DotNet.Objeto.Filme)">
+            <summary>
+            Atualiza um filme pelo id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Locadora_WebAPI_DotNet.Controllers.FilmeController.Excluir(System.Int32)">
+            <summary>
+            Deleta um filme pelo id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Locadora_WebAPI_DotNet.Controllers.LocacaoController.Consultar">
+            <summary>
+            Lista todos as locacoes cadastradas
+            </summary>
+            <param></param>
+            <returns></returns>
+        </member>
+        <member name="M:Locadora_WebAPI_DotNet.Controllers.LocacaoController.Consultar(System.Int32)">
+            <summary>
+            Consulta uma locacao pelo id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Locadora_WebAPI_DotNet.Controllers.LocacaoController.Cadastrar(Locadora_WebAPI_DotNet.Objeto.Locacao)">
+            <summary>
+            Cadastra uma locacao
+            </summary>
+            <param></param>
+            <returns></returns>
+        </member>
+        <member name="M:Locadora_WebAPI_DotNet.Controllers.LocacaoController.Atualizar(System.Int32,Locadora_WebAPI_DotNet.Objeto.LocacaoAtualiza)">
+            <summary>
+            Atualiza uma locacao pelo id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Locadora_WebAPI_DotNet.Controllers.LocacaoController.Excluir(System.Int32)">
+            <summary>
+            Deleta um locacao pelo id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

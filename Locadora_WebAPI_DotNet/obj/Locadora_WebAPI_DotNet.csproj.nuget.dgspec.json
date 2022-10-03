@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Anthony\\Documents\\Projetos\\Locadora_WebAPI_DotNet\\Locadora_WebAPI_DotNet\\Locadora_WebAPI_DotNet.csproj": {}
+    "C:\\Anthony\\Projetos\\Locadora_WebAPI_DotNet\\Locadora_WebAPI_DotNet\\Locadora_WebAPI_DotNet.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Anthony\\Documents\\Projetos\\Locadora_WebAPI_DotNet\\Locadora_WebAPI_DotNet\\Locadora_WebAPI_DotNet.csproj": {
+    "C:\\Anthony\\Projetos\\Locadora_WebAPI_DotNet\\Locadora_WebAPI_DotNet\\Locadora_WebAPI_DotNet.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Anthony\\Documents\\Projetos\\Locadora_WebAPI_DotNet\\Locadora_WebAPI_DotNet\\Locadora_WebAPI_DotNet.csproj",
+        "projectUniqueName": "C:\\Anthony\\Projetos\\Locadora_WebAPI_DotNet\\Locadora_WebAPI_DotNet\\Locadora_WebAPI_DotNet.csproj",
         "projectName": "Locadora_WebAPI_DotNet",
-        "projectPath": "C:\\Users\\Anthony\\Documents\\Projetos\\Locadora_WebAPI_DotNet\\Locadora_WebAPI_DotNet\\Locadora_WebAPI_DotNet.csproj",
-        "packagesPath": "C:\\Users\\Anthony\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Anthony\\Documents\\Projetos\\Locadora_WebAPI_DotNet\\Locadora_WebAPI_DotNet\\obj\\",
+        "projectPath": "C:\\Anthony\\Projetos\\Locadora_WebAPI_DotNet\\Locadora_WebAPI_DotNet\\Locadora_WebAPI_DotNet.csproj",
+        "packagesPath": "C:\\Users\\anthony\\.nuget\\packages\\",
+        "outputPath": "C:\\Anthony\\Projetos\\Locadora_WebAPI_DotNet\\Locadora_WebAPI_DotNet\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Anthony\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\anthony\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -44,6 +44,10 @@
               "target": "Package",
               "version": "[8.0.30, )"
             },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
@@ -68,7 +72,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
