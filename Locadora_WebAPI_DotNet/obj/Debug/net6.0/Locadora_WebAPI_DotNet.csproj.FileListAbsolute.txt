@@ -93,3 +93,6 @@ C:\Anthony\Projetos\Locadora_WebAPI_DotNet\Locadora_WebAPI_DotNet\obj\Debug\net6
 C:\Anthony\Projetos\Locadora_WebAPI_DotNet\Locadora_WebAPI_DotNet\obj\Debug\net6.0\Locadora_WebAPI_DotNet.pdb
 C:\Anthony\Projetos\Locadora_WebAPI_DotNet\Locadora_WebAPI_DotNet\obj\Debug\net6.0\Locadora_WebAPI_DotNet.genruntimeconfig.cache
 C:\Anthony\Projetos\Locadora_WebAPI_DotNet\Locadora_WebAPI_DotNet\obj\Debug\net6.0\ref\Locadora_WebAPI_DotNet.dll
+C:\Users\Anthony\Documents\Projetos\Locadora_WebAPI_DotNet\Locadora_WebAPI_DotNet\bin\Debug\net6.0\Locadora_WebAPI_DotNet.xml
+C:\Users\Anthony\Documents\Projetos\Locadora_WebAPI_DotNet\Locadora_WebAPI_DotNet\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\Anthony\Documents\Projetos\Locadora_WebAPI_DotNet\Locadora_WebAPI_DotNet\obj\Debug\net6.0\Locadora_WebAPI_DotNet.xml

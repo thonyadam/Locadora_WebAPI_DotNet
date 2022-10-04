@@ -88,6 +88,8 @@ namespace Locadora_WebAPI_DotNet.Controllers
 
                     MySqlDataReader reader = cmd.ExecuteReader();
 
+                    reader.Read();
+
                     var cliente = new ClienteModel(
                             Convert.ToInt32(reader["Id"].ToString()),
                             reader["Nome"].ToString(),

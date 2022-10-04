@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Anthony\\Projetos\\Locadora_WebAPI_DotNet\\Locadora_WebAPI_DotNet\\Locadora_WebAPI_DotNet.csproj": {}
+    "C:\\Users\\Anthony\\Documents\\Projetos\\Locadora_WebAPI_DotNet\\Locadora_WebAPI_DotNet\\Locadora_WebAPI_DotNet.csproj": {}
   },
   "projects": {
-    "C:\\Anthony\\Projetos\\Locadora_WebAPI_DotNet\\Locadora_WebAPI_DotNet\\Locadora_WebAPI_DotNet.csproj": {
+    "C:\\Users\\Anthony\\Documents\\Projetos\\Locadora_WebAPI_DotNet\\Locadora_WebAPI_DotNet\\Locadora_WebAPI_DotNet.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Anthony\\Projetos\\Locadora_WebAPI_DotNet\\Locadora_WebAPI_DotNet\\Locadora_WebAPI_DotNet.csproj",
+        "projectUniqueName": "C:\\Users\\Anthony\\Documents\\Projetos\\Locadora_WebAPI_DotNet\\Locadora_WebAPI_DotNet\\Locadora_WebAPI_DotNet.csproj",
         "projectName": "Locadora_WebAPI_DotNet",
-        "projectPath": "C:\\Anthony\\Projetos\\Locadora_WebAPI_DotNet\\Locadora_WebAPI_DotNet\\Locadora_WebAPI_DotNet.csproj",
-        "packagesPath": "C:\\Users\\anthony\\.nuget\\packages\\",
-        "outputPath": "C:\\Anthony\\Projetos\\Locadora_WebAPI_DotNet\\Locadora_WebAPI_DotNet\\obj\\",
+        "projectPath": "C:\\Users\\Anthony\\Documents\\Projetos\\Locadora_WebAPI_DotNet\\Locadora_WebAPI_DotNet\\Locadora_WebAPI_DotNet.csproj",
+        "packagesPath": "C:\\Users\\Anthony\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Anthony\\Documents\\Projetos\\Locadora_WebAPI_DotNet\\Locadora_WebAPI_DotNet\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\anthony\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Anthony\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -72,7 +72,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

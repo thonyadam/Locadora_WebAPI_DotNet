@@ -109,5 +109,40 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:Locadora_WebAPI_DotNet.Controllers.RelatorioController.ClientesDevendo">
+            <summary>
+            Lista os clientes em atraso na devolução
+            </summary>
+            <param></param>
+            <returns></returns>
+        </member>
+        <member name="M:Locadora_WebAPI_DotNet.Controllers.RelatorioController.FilmesNaoAlugados">
+            <summary>
+            Lista os filmes que nunca foram alugados
+            </summary>
+            <param></param>
+            <returns></returns>
+        </member>
+        <member name="M:Locadora_WebAPI_DotNet.Controllers.RelatorioController.Top5Filmes">
+            <summary>
+            Lista os cinco filmes mais alugados do último ano
+            </summary>
+            <param></param>
+            <returns></returns>
+        </member>
+        <member name="M:Locadora_WebAPI_DotNet.Controllers.RelatorioController.Piores3Filmes">
+            <summary>
+            Lista os três filmes menos alugados da última semana
+            </summary>
+            <param></param>
+            <returns></returns>
+        </member>
+        <member name="M:Locadora_WebAPI_DotNet.Controllers.RelatorioController.Top2Cliente">
+            <summary>
+            Lista O segundo cliente que mais alugou filmes
+            </summary>
+            <param></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>

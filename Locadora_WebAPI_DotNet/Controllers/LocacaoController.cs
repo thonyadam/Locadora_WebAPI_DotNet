@@ -186,6 +186,7 @@ namespace Locadora_WebAPI_DotNet.Controllers
                     cmd.Parameters.Add("@Id_Filme", MySqlDbType.Int32);
                     cmd.Parameters.Add("@DataLocacao", MySqlDbType.DateTime);
                     cmd.Parameters.Add("@DataDevolucao", MySqlDbType.DateTime);
+                    cmd.Parameters.Add("@Id", MySqlDbType.Int32);
                     cmd.Parameters["@Id_Cliente"].Value = value.idCliente;
                     cmd.Parameters["@Id_Filme"].Value = value.idFilme;
                     cmd.Parameters["@DataLocacao"].Value = value.DataLocacao;

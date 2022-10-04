@@ -86,10 +86,12 @@ namespace Locadora_WebAPI_DotNet.Controllers
 
                     MySqlDataReader reader = cmd.ExecuteReader();
 
+                    reader.Read();
+
                     var filme = new FilmeModel(
                             Convert.ToInt32(reader["Id"].ToString()),
                             reader["Titulo"].ToString(),
-                            Convert.ToInt32(reader["ClassificaoIndicativa"].ToString()),
+                            Convert.ToInt32(reader["ClassificacaoIndicativa"].ToString()),
                             Convert.ToInt32(reader["Lancamento"].ToString())
                             );
 
